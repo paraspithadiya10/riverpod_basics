@@ -1,10 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_demo/model/player.dart';
 import 'package:riverpod_demo/providers/counter_provider.dart';
 import 'package:riverpod_demo/services/user_service.dart';
 
-final nameProvider = Provider<String>((ref) => 'David Warner');
+final nameProvider = Provider.family<String, Player>((ref, player) {
+  return 'Name: ${player.name},  jearsyNo: ${player.jersyNo},  Role: ${player.role}';
+});
 
 final counterProvider =
     StateNotifierProvider.autoDispose<CounterDemo, int>((ref) {
