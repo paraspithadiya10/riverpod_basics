@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_demo/counter_page.dart';
+import 'package:riverpod_demo/user_page.dart';
 
 void main() {
   runApp(ProviderScope(child: MyApp()));
@@ -13,7 +14,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: CounterPage(),
+      theme: ThemeData.dark(),
+      home: UserPage(),
     );
   }
 }
