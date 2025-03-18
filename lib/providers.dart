@@ -11,3 +11,7 @@ final apiProvider = Provider<ApiService>((ref) => ApiService());
 
 final userDataProvider =
     FutureProvider((ref) => ref.read(apiProvider).getUser());
+
+final streamProvider = StreamProvider(((ref) {
+  return Stream.periodic(Duration(seconds: 1), ((count) => count));
+}));
