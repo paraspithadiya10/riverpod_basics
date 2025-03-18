@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_demo/counter_page.dart';
+import 'package:riverpod_demo/counter_using_streams.dart';
 import 'package:riverpod_demo/user_page.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
-      home: UserPage(),
+      home: CounterUsingStreams(),
     );
   }
 }
