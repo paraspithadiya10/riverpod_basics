@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_demo/counter_using_streams.dart';
-import 'package:riverpod_demo/user_page.dart';
 
 void main() {
   runApp(ProviderScope(child: MyApp()));

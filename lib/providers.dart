@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_demo/counter_provider.dart';
 import 'package:riverpod_demo/services/user_service.dart';
@@ -5,7 +7,15 @@ import 'package:riverpod_demo/services/user_service.dart';
 final nameProvider = Provider<String>((ref) => 'David Warner');
 
 final counterProvider =
-    StateNotifierProvider<CounterDemo, int>((ref) => CounterDemo());
+    StateNotifierProvider.autoDispose<CounterDemo, int>((ref) {
+  //ref.keepAlive();
+
+  final link = ref.keepAlive();
+  final timer = Timer(Duration(seconds: 10), () => link.close());
+  ref.onDispose(() => timer.cancel());
+
+  return CounterDemo();
+});
 
 final apiProvider = Provider<ApiService>((ref) => ApiService());
 
