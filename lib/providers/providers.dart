@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_demo/counter_provider.dart';
+import 'package:riverpod_demo/providers/counter_provider.dart';
 import 'package:riverpod_demo/services/user_service.dart';
 
 final nameProvider = Provider<String>((ref) => 'David Warner');
