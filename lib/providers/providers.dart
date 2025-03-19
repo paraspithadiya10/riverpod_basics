@@ -2,7 +2,9 @@ import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_demo/model/player.dart';
-import 'package:riverpod_demo/providers/counter_provider.dart';
+import 'package:riverpod_demo/model/user.dart';
+import 'package:riverpod_demo/notifiers/counter_notifier.dart';
+import 'package:riverpod_demo/notifiers/user_notifier.dart';
 import 'package:riverpod_demo/services/user_service.dart';
 
 final nameProvider = Provider.family<String, Player>((ref, player) {
@@ -30,3 +32,6 @@ final streamProvider = StreamProvider(((ref) {
 }));
 
 final themeProvider = StateProvider<bool>((ref) => true);
+
+final userProvider = StateNotifierProvider<UserNotifier, User>(
+    (ref) => UserNotifier(User(name: "dummy name", email: "dummy email")));
