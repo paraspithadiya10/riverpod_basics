@@ -14,7 +14,18 @@ class _HomePageState extends ConsumerState<HomePage> {
   @override
   Widget build(BuildContext context) {
     final name = ref.watch(nameProvider(Player('Dhoni', '7', 'Weeket-Keeper')));
+    final isLightTheme = ref.watch(themeProvider);
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Home Page'),
+        actions: [
+          Switch(
+              value: isLightTheme,
+              onChanged: (value) {
+                ref.read(themeProvider.notifier).state = value;
+              })
+        ],
+      ),
       body: Center(
         child: Text(name),
       ),
