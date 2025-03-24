@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_demo/notifiers/navigation_notifier.dart';
+import 'package:riverpod_demo/notifiers/theme_notifier.dart';
 
 class NavigationPage extends ConsumerWidget {
   const NavigationPage({super.key});
@@ -8,10 +9,24 @@ class NavigationPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     int index = ref.watch(navigationNotifierProvider);
+    bool isLightMode = ref.watch(themeNotifierProvider);
 
     return Scaffold(
       appBar: AppBar(
         title: Text('Navigation'),
+        actions: [
+          isLightMode
+              ? IconButton(
+                  onPressed: () {
+                    ref.read(themeNotifierProvider.notifier).changeTheme(false);
+                  },
+                  icon: Icon(Icons.shield_moon))
+              : IconButton(
+                  onPressed: () {
+                    ref.read(themeNotifierProvider.notifier).changeTheme(true);
+                  },
+                  icon: Icon(Icons.sunny))
+        ],
       ),
       body: [
         Center(

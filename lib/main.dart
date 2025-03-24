@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_demo/notifiers/theme_notifier.dart';
 import 'package:riverpod_demo/providers/providers.dart';
 import 'package:riverpod_demo/screens/counter_using_notifier_provider.dart';
 import 'package:riverpod_demo/screens/home_page.dart';
@@ -17,10 +18,11 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isLightTheme = ref.watch(themeProvider);
+    //final isLightTheme = ref.watch(themeProvider);
+    final islightTheme = ref.watch(themeNotifierProvider);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: isLightTheme ? ThemeData.light() : ThemeData.dark(),
+      theme: islightTheme ? ThemeData.light() : ThemeData.dark(),
       home: NavigationPage(),
     );
   }
