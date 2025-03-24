@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_demo/model/player.dart';
 import 'package:riverpod_demo/model/user.dart';
-import 'package:riverpod_demo/notifiers/counter_notifier.dart';
+import 'package:riverpod_demo/notifiers/counter_state_notifier.dart';
 import 'package:riverpod_demo/notifiers/user_notifier.dart';
 import 'package:riverpod_demo/services/user_service.dart';
 
